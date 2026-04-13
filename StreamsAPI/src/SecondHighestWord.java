@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-public class SecondHighestLength {
+public class SecondHighestWord {
     public static void main(String[] args) {
 
         String words = "I am learning stream api in java";
