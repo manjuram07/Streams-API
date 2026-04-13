@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Optional;
 
-public class Main {
+public class WordWithTheHighestLength {
 
     /*
      * Find the word with the highest length in a given string using Stream API.
