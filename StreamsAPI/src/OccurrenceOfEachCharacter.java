@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class OccurrenceOfEachCharacter {
@@ -15,8 +16,8 @@ public class OccurrenceOfEachCharacter {
         String str = "Mississippi";
 
         Map<String, Long> collect = Arrays.stream(str.split(""))
-                .collect(Collectors.groupingBy(ch -> ch, Collectors.counting()));
-
+//                  .collect(Collectors.groupingBy(ch -> ch, Collectors.counting()));
+                    .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         System.out.println(collect);
 
     }
