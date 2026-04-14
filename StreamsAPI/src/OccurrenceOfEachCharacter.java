@@ -8,7 +8,7 @@ public class OccurrenceOfEachCharacter {
         count the occurrence of each character in a given string.
         input: "hello world"
         output:
-        h: 1 e: 1 l: 3 o: 2 w: 1 r: 1 d: 1
+        {p=2, s=4, i=4, M=1}
      */
     public static void main(String[] args) {
 
