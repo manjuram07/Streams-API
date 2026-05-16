@@ -1,5 +1,8 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class EvenOddNumbers {
@@ -15,7 +18,8 @@ public class EvenOddNumbers {
         int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
         List<Integer> list = Arrays.stream(numbers)
-                                            .boxed().collect(Collectors.toList());
+                                            .boxed()        // convert a primitive stream into an object stream.
+                                            .collect(Collectors.toList());
 
         List<List<Integer>> collect = list.stream()
                                                     .collect(Collectors.groupingBy(x -> x % 2 == 0, Collectors.toList()))
@@ -23,6 +27,11 @@ public class EvenOddNumbers {
 
         System.out.println(collect);
 
+        // print separate even and odd
+        Map<String, List<Integer>> collect1 = list.stream()
+                                                    .collect(Collectors.groupingBy(x -> x%2 == 0 ? "even": "odd", Collectors.toList()));
 
+
+        collect1.forEach((key, values) -> System.out.println(key+ " : "+ values));
     }
 }
