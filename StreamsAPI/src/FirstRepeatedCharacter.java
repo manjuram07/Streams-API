@@ -1,6 +1,7 @@
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FirstRepeatedCharacter {
 
@@ -11,28 +12,15 @@ public class FirstRepeatedCharacter {
      */
     public static void main(String[] args) {
 
-        String word = "abba";
+        String words = "hello world";
 
-        // using logic
-        Map<Character, Integer> map = new HashMap<>();
+        LinkedHashMap<Character, Long> collect = words.chars().mapToObj(word -> (char) word)
+                .collect(Collectors.groupingBy(word -> word, LinkedHashMap::new, Collectors.counting()));
 
-        for (int i=0; i<word.length(); i++){
-            if (map.containsKey(word.charAt(i))){
-                System.out.println(word.charAt(i));
-                break;
-            }
-            map.put(word.charAt(i), 1);
-        }
+        Character ch = collect.entrySet().stream().filter(value -> value.getValue() > 1)
+                .map(key -> key.getKey()).findFirst().get();
 
-        // Using Set in streams
-        Set<Character> seen = new HashSet<>();
-
-        Character character = word.chars()
-                            .mapToObj(ch -> (char) ch)
-                            .filter(x -> !seen.add(x))
-                            .findFirst().orElse(null);
-
-        System.out.println(character);
+        System.out.println(ch);
 
 
     }
