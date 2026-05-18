@@ -1,5 +1,8 @@
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.OptionalInt;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class WordWithTheHighestLength {
 
@@ -13,13 +16,11 @@ public class WordWithTheHighestLength {
 
         String str = "I am learning stream api in java";
 
-        String[] worrds = str.split("\\s+");
+        int maxLength = Arrays.stream(str.split("\\s+"))
+                .mapToInt(String::length)
+                .max()
+                .getAsInt();
 
-        Optional<String> max = Arrays.stream(worrds)
-                .max((s1, s2) -> Integer.compare(s1.length(), s2.length()));
-
-        max.ifPresent(System.out::println);
-
-
+        System.out.println(maxLength);
     }
 }
