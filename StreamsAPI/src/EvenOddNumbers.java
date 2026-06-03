@@ -18,8 +18,8 @@ public class EvenOddNumbers {
         int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
         List<Integer> list = Arrays.stream(numbers)
-                                            .boxed()        // convert a primitive stream into an object stream.
-                                            .collect(Collectors.toList());
+                                            .boxed()        // convert a primitive stream into an corresponding wrapper object stream.
+                                            .toList();
 
         List<List<Integer>> collect = list.stream()
                                                     .collect(Collectors.groupingBy(x -> x % 2 == 0, Collectors.toList()))

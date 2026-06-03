@@ -31,7 +31,6 @@ public class NumberOfVowels {
         }
 
         // using stream API
-
         Stream<String> stringStream = Arrays.stream(words.split("\\s+"))
                                             .filter(word -> word.chars()
                                                                         .filter(ch -> ch == 'a' ||

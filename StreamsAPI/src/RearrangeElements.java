@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class RearrangeElements {
@@ -13,21 +14,15 @@ public class RearrangeElements {
      */
     public static void main(String[] args) {
 
-        int[] numbers = {1,2,3,4,5};
+        Stream<Integer> boxed = IntStream.of(1, 2, 3)
+                .boxed();// → Stream<Integer>
 
-        List<Integer> list = Arrays.stream(numbers)             // convert int[] to IntStream
-                                         .mapToObj(x->x)    // convert int to Integer
-//                                        .boxed()             // convert IntStream to Stream<Integer>
-                                        .collect(Collectors.toList()).reversed(); // collect to List<Integer> and reverse the order
-
-        System.out.println(list);
+        System.out.println(boxed.toList());
 
 
-        List<Integer> list1 = Arrays.stream(numbers)             // convert int[] to IntStream
-//                                    .mapToObj(x->x)    // convert int to Integer
-                                   .boxed()             // convert IntStream to Stream<Integer>
-                                    .collect(Collectors.toList()).reversed(); // collect to List<Integer> and reverse the order
+        Stream<Integer> stream = IntStream.of(1, 2, 3)
+                .mapToObj(x -> x);// → Stream<Integer> (via autoboxing)
 
-        System.out.println(list1);
+        System.out.println(stream.toList());
     }
 }
