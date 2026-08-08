@@ -18,8 +18,8 @@ public class FindDuplicateWordsInSentence {
         Set<String> seen = new HashSet<>();
 
         List<String> list = Arrays.stream(sentence.toLowerCase().split(" "))
-                .filter(word -> !seen.add(word))
-                .toList();
+                                    .filter(word -> !seen.add(word))
+                                    .toList();
 
         list.forEach(System.out::println);
 

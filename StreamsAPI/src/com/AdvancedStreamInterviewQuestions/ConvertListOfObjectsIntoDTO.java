@@ -10,7 +10,6 @@ public class ConvertListOfObjectsIntoDTO {
     public static void main(String[] args) {
 
         List<Employee> employees = Arrays.asList(
-
                 new Employee("Raam", 55000, 50, "JAVA"),
                 new Employee("John", 65000, 80, "Python"),
                 new Employee("David", 35000, 75, "C++"),
